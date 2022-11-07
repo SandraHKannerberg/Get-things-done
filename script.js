@@ -42,6 +42,7 @@ function addTodos() {
     renderTodos();
 }
 
+//Kolla varför den första punkten på listan inte kan tas bort innan allt annat är raderat
 function removeTodo(event) {
 
     const todos = JSON.parse(localStorage.getItem("todos"));

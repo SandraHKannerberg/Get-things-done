@@ -21,7 +21,15 @@ function renderTodos() {
             const icon = document.createElement("i");
             icon.classList.add("fa-solid", "fa-trash");
             li.appendChild(icon);
-            icon.addEventListener("click", removeTodo);
+            icon.addEventListener("click", () => {
+
+                const index = todos.indexOf(todo);
+                todos.splice(index, 1)
+            
+                localStorage.setItem("todos", JSON.stringify(todos));
+                renderTodos();
+            
+            });
 
             todoList.appendChild(li);
         }
@@ -39,17 +47,5 @@ function addTodos() {
     } 
     
     todoInput.value = "";
-    renderTodos();
-}
-
-//Kolla varför den första punkten på listan inte kan tas bort innan allt annat är raderat
-function removeTodo(event) {
-
-    const todos = JSON.parse(localStorage.getItem("todos"));
-
-    const index = todos.indexOf(event.target.innerText);
-    todos.splice(index, 1);
-    localStorage.setItem("todos", JSON.stringify(todos));
-    
     renderTodos();
 }

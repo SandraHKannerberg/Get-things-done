@@ -75,44 +75,41 @@ li {
     height: 50px;
     margin: auto;
     padding: 20px;
-    background-color: #C5FAD5;
-}
-
-ul li:nth-child(odd) {
-    background: lightgrey;
-}
-
-ul li.checked::before {
-    content: '';
-    position: absolute;
-    border-color: #fff;
-    border-style: solid;
-    border-width: 0 2px 2px 0;
-    top: 10px;
-    left: 16px;
-    transform: rotate(45deg);
-    height: 15px;
-    width: 7px;
+    background-color: lightgrey;
 }
 
 ul li:hover {
-    background: grey;
+    background: #C5FAD5;
 }
 
-ul li.checked {
-    background: #888;
-    color: #fff;
-    text-decoration: line-through;
+.btnContainer {
+    display: flex;
+    gap: 1rem;
+}
+
+.btnCheck {
+    background-color: grey;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: none;
+    color: lightgrey;
+    font-size: 18px;
+  }
+  
+.btnCheck:hover {
+    background-color: green;
+    color: white;
 }
 
 .btnDelete {
     background-color: grey;
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
     border-radius: 50%;
     border: none;
     color: lightgrey;
-    font-size: 20px;
+    font-size: 18px;
   }
   
 .btnDelete:hover {

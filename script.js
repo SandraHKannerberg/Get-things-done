@@ -14,17 +14,36 @@ function renderTodos() {
     if (todos) {
         for (const todo of todos) {
             const li = document.createElement("li");
-
+         
             const liText = document.createTextNode(todo);
             li.appendChild(liText);
 
+            const btnContainer = document.createElement("div");
+            btnContainer.classList.add("btnContainer");
+            li.appendChild(btnContainer);
+
+            const btnCheck = document.createElement("button");
+            btnCheck.classList.add("btnCheck");
+            btnContainer.appendChild(btnCheck);
+
+            const checkMark = document.createElement("i");
+            checkMark.classList.add("fa-solid", "fa-check");
+            btnCheck.appendChild(checkMark);
+
             const btnDelete = document.createElement("button");
             btnDelete.classList.add("btnDelete");
-            li.appendChild(btnDelete);
+            btnContainer.appendChild(btnDelete);
 
-            const icon = document.createElement("i");
-            icon.classList.add("fa-solid", "fa-trash");
-            btnDelete.appendChild(icon);
+            const xMark = document.createElement("i");
+            xMark.classList.add("fa-solid", "fa-x");
+            btnDelete.appendChild(xMark);
+
+            btnCheck.addEventListener("click", () => {
+                li.style.backgroundColor = "grey";
+                li.style.color = "white";
+                li.style.textDecoration = "line-through";
+            })
+
             btnDelete.addEventListener("click", () => {
 
                 const index = todos.indexOf(todo);

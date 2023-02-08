@@ -18,10 +18,14 @@ function renderTodos() {
             const liText = document.createTextNode(todo);
             li.appendChild(liText);
 
+            const btnDelete = document.createElement("button");
+            btnDelete.classList.add("btnDelete");
+            li.appendChild(btnDelete);
+
             const icon = document.createElement("i");
             icon.classList.add("fa-solid", "fa-trash");
-            li.appendChild(icon);
-            icon.addEventListener("click", () => {
+            btnDelete.appendChild(icon);
+            btnDelete.addEventListener("click", () => {
 
                 const index = todos.indexOf(todo);
                 todos.splice(index, 1)
